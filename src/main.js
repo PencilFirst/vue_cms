@@ -9,6 +9,10 @@ import './assets/mock/index'
 import axios from 'axios'
 
 Vue.config.productionTip = false
+axios.interceptors.request.use(config => {
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
 Vue.prototype.$http = axios
 
 new Vue({
