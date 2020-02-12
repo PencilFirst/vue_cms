@@ -72,7 +72,7 @@ Mock.mock('/menus', 'get', {
           {
             'id': 110,
             'authName': '商品分类',
-            'path': null,
+            'path': 'categories',
             'childern': []
           }
         ]
@@ -1270,6 +1270,216 @@ Mock.mock(/\/roles/, 'post', {
   data: [],
   'meta': {
     'msg': '更新成功',
+    'status': 200
+  }
+})
+Mock.mock(/\/categories/, 'get', {
+  data: {
+    pagenum: 0,
+    pagesize: 5,
+    result: [
+      {
+        'cat_id': 1,
+        'cat_name': '家电',
+        'cat_pid': 0,
+        'cat_level': 0,
+        'cat_deleted': false,
+        'children': [
+          {
+            'cat_id': 3,
+            'cat_name': '电视',
+            'cat_pid': 1,
+            'cat_level': 1,
+            'cat_deleted': false,
+            'children': [
+              {
+                'cat_id': 6,
+                'cat_name': '曲面电视',
+                'cat_pid': 3,
+                'cat_level': 2,
+                'cat_deleted': false
+              },
+              {
+                'cat_id': 7,
+                'cat_name': '海信',
+                'cat_pid': 3,
+                'cat_level': 2,
+                'cat_deleted': false
+              },
+              {
+                'cat_id': 8,
+                'cat_name': '夏普',
+                'cat_pid': 3,
+                'cat_level': 2,
+                'cat_deleted': false
+              },
+              {
+                'cat_id': 9,
+                'cat_name': '创维',
+                'cat_pid': 3,
+                'cat_level': 2,
+                'cat_deleted': false
+              },
+              {
+                'cat_id': 10,
+                'cat_name': 'TCL',
+                'cat_pid': 3,
+                'cat_level': 2,
+                'cat_deleted': false
+              }
+            ]
+          },
+          {
+            'cat_id': 4,
+            'cat_name': '冰箱',
+            'cat_pid': 1,
+            'cat_level': 1,
+            'cat_deleted': false,
+            'children': [
+              {
+                'cat_id': 11,
+                'cat_name': '海尔兄弟',
+                'cat_pid': 4,
+                'cat_level': 2,
+                'cat_deleted': false
+              },
+              {
+                'cat_id': 12,
+                'cat_name': '容声',
+                'cat_pid': 4,
+                'cat_level': 2,
+                'cat_deleted': false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        'cat_id': 15,
+        'cat_name': '热门推荐',
+        'cat_pid': 0,
+        'cat_level': 0,
+        'cat_deleted': false,
+        'children': [
+          {
+            'cat_id': 16,
+            'cat_name': '彩妆',
+            'cat_pid': 15,
+            'cat_level': 1,
+            'cat_deleted': false,
+            'children': [
+              {
+                'cat_id': 17,
+                'cat_name': 'Dior',
+                'cat_pid': 15,
+                'cat_level': 2,
+                'cat_deleted': false
+              },
+              {
+                'cat_id': 18,
+                'cat_name': 'LV',
+                'cat_pid': 15,
+                'cat_level': 2,
+                'cat_deleted': false
+              },
+              {
+                'cat_id': 19,
+                'cat_name': '纪梵希',
+                'cat_pid': 15,
+                'cat_level': 2,
+                'cat_deleted': false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    total: 10
+  },
+  'meta': {
+    'msg': '获取商品分类成功',
+    'status': 200
+  }
+})
+Mock.mock(/\/Categories/, 'get', {
+  data: {
+    pagenum: 0,
+    pagesize: 5,
+    result: [
+      {
+        'cat_id': 1,
+        'cat_name': '家电',
+        'cat_pid': 0,
+        'cat_level': 0,
+        'cat_deleted': false,
+        'children': [
+          {
+            'cat_id': 3,
+            'cat_name': '电视',
+            'cat_pid': 1,
+            'cat_level': 1,
+            'cat_deleted': false
+          },
+          {
+            'cat_id': 4,
+            'cat_name': '冰箱',
+            'cat_pid': 1,
+            'cat_level': 1,
+            'cat_deleted': false
+          }
+        ]
+      },
+      {
+        'cat_id': 15,
+        'cat_name': '热门推荐',
+        'cat_pid': 0,
+        'cat_level': 0,
+        'cat_deleted': false,
+        'children': [
+          {
+            'cat_id': 16,
+            'cat_name': '彩妆',
+            'cat_pid': 15,
+            'cat_level': 1,
+            'cat_deleted': false
+          }
+        ]
+      },
+      {
+        'cat_id': 20,
+        'cat_name': '数码产品',
+        'cat_pid': 0,
+        'cat_level': 0,
+        'cat_deleted': false,
+        'children': [
+          {
+            'cat_id': 21,
+            'cat_name': '相机',
+            'cat_pid': 20,
+            'cat_level': 1,
+            'cat_deleted': false
+          },
+          {
+            'cat_id': 22,
+            'cat_name': '手机',
+            'cat_pid': 20,
+            'cat_level': 1,
+            'cat_deleted': false
+          },
+          {
+            'cat_id': 23,
+            'cat_name': '平板电脑',
+            'cat_pid': 20,
+            'cat_level': 1,
+            'cat_deleted': false
+          }
+        ]
+      }
+    ],
+    total: 10
+  },
+  'meta': {
+    'msg': '获取商品分类成功',
     'status': 200
   }
 })
