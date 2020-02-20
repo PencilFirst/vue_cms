@@ -13,7 +13,7 @@
       </el-row>
       <el-table
         :data="rolesList"
-        boreder
+        border
         stripe
       >
         <el-table-column type="expand">

@@ -66,7 +66,7 @@ Mock.mock('/menus', 'get', {
           {
             'id': 109,
             'authName': '分类参数',
-            'path': null,
+            'path': 'params',
             'childern': []
           },
           {
@@ -1481,5 +1481,147 @@ Mock.mock(/\/Categories/, 'get', {
   'meta': {
     'msg': '获取商品分类成功',
     'status': 200
+  }
+})
+Mock.mock(/\/params/, 'get', function (options) {
+  console.log(options)
+  let url = options.url.substr(options.url.indexOf('?') + 1)
+  let items = url.split('&')
+  let urlobj = {}
+  for (let i = 0; i < items.length; i++) {
+    let obj = items[i].split('=')
+    urlobj[obj[0]] = obj[1]
+  }
+  console.log(urlobj)
+  const many = {
+    6: [
+      { attr_name: '板式', attr_id: '6', attr_vals: ['40寸超大屏幕', '4K高清分辨率', 'HDR屏幕', '人工智能', '全面屏'] },
+      { attr_name: '颜色' }],
+    7: [{ attr_name: '板式', attr_id: '7', attr_vals: ['40寸超大屏幕', '4K高清分辨率', 'HDR屏幕', '人工智能', '全面屏'] }, { attr_name: '颜色' }],
+    8: [{ attr_name: '板式', attr_id: '8', attr_vals: ['40寸超大屏幕', '4K高清分辨率', 'HDR屏幕', '人工智能', '全面屏'] }, { attr_name: '颜色' }],
+    9: [{ attr_name: '板式', attr_id: '9', attr_vals: ['40寸超大屏幕', '4K高清分辨率', 'HDR屏幕', '人工智能', '全面屏'] }, { attr_name: '颜色' }],
+    10: [{ attr_name: '板式', attr_id: '10', attr_vals: ['40寸超大屏幕', '4K高清分辨率', 'HDR屏幕', '人工智能', '全面屏'] }, { attr_name: '颜色' }],
+    11: [{ attr_name: '板式', attr_id: '10', attr_vals: ['40寸超大屏幕', '4K高清分辨率', 'HDR屏幕', '人工智能', '全面屏'] }, { attr_name: '颜色' }],
+    12: [{ attr_name: '板式', attr_id: '10', attr_vals: ['40寸超大屏幕', '4K高清分辨率', 'HDR屏幕', '人工智能', '全面屏'] }, { attr_name: '颜色' }],
+    17: [{ attr_name: '款式', attr_id: '17', attr_vals: ['单肩包', '棕色', '印花', '通勤', '束口'] }, { attr_name: '颜色' }],
+    18: [{ attr_name: '款式', attr_id: '18', attr_vals: ['单肩包', '棕色', '印花', '通勤', '束口'] }, { attr_name: '颜色' }],
+    19: [{ attr_name: '款式', attr_id: '19', attr_vals: ['单肩包', '棕色', '印花', '通勤', '束口'] }, { attr_name: '颜色' }]
+  }
+  const only = {
+    6: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ],
+    7: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ],
+    8: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ],
+    9: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ],
+    10: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ],
+    11: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ],
+    12: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ],
+    17: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ],
+    18: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ],
+    19: [
+      { attr_id: '6', attr_name: '底座配置', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: 'CPU核数', attr_vals: ['四核心'] },
+      { attr_id: '6', attr_name: '智能电视', attr_vals: ['是'] },
+      { attr_id: '6', attr_name: '存储内存', attr_vals: ['32GB'] },
+      { attr_id: '6', attr_name: '产品颜色', attr_vals: ['黑色'] },
+      { attr_id: '6', attr_name: 'HDR显示', attr_vals: ['支持'] },
+      { attr_id: '6', attr_name: '屏幕比例', attr_vals: ['16:9'] },
+      { attr_id: '6', attr_name: '屏幕分辨率', attr_vals: ['超高清4K'] },
+      { attr_id: '6', attr_name: '屏幕尺寸', attr_vals: ['40英寸'] }
+    ]
+  }
+  if (urlobj.sel === 'only') {
+    return only[urlobj.id]
+  } else {
+    return many[urlobj.id]
   }
 })
