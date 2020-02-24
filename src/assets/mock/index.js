@@ -60,7 +60,7 @@ Mock.mock('/menus', 'get', {
           {
             'id': 108,
             'authName': '商品列表',
-            'path': null,
+            'path': 'goods',
             'childern': []
           },
           {
@@ -1625,3 +1625,28 @@ Mock.mock(/\/params/, 'get', function (options) {
     return many[urlobj.id]
   }
 })
+Mock.mock(/\/goods/, 'get', {
+  'data': {
+    'total': 50,
+    'pagenum': '1',
+    'goods|50': [
+      {
+        'goods_id': '@id',
+        'goods_name': '@cparagraph',
+        'goods_price': '@integer(50,1500)',
+        'goods_number': '@integer(1,100)',
+        'goods_weight': '@integer(10,50)',
+        'goods_sate': 'null',
+        'add_time': '@datetime("yyyy-MM-dd A HH:mm:ss")',
+        'upd_time': '@datetime("yyyy-MM-dd A HH:mm:ss")',
+        'hot_number': 0,
+        'is_promote': '@boolean()'
+      }
+    ]
+  },
+  'meta': {
+    'msg': '获取商品分类成功',
+    'status': 200
+  }
+})
+Mock.mock(/\/upload/, 'post', {})
