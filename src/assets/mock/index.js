@@ -80,12 +80,12 @@ Mock.mock('/menus', 'get', {
       {
         'id': 111,
         'authName': '订单管理',
-        'path': null,
+        'path': 'order',
         'children': [
           {
             'id': 112,
             'authName': '订单列表',
-            'path': null,
+            'path': 'order',
             'childern': []
           }
         ]
@@ -1650,3 +1650,43 @@ Mock.mock(/\/goods/, 'get', {
   }
 })
 Mock.mock(/\/upload/, 'post', {})
+Mock.mock(/\/order/, 'get', {
+  'data': {
+    'goods|27': [{
+      'order_id': '@id',
+      'user_id': '@id',
+      'order_number': '@guid',
+      'order_price': '@integer(50,1500)',
+      'order_pay|1': ['0', '1'],
+      'is_send|1': ['是', '否'],
+      'trade_no': '',
+      'order_fapiao_title|1': ['个人', '企业'],
+      'order_fapiao_conmany': '',
+      'order_fapiao_content': '',
+      'consignee_addr': '@county(true)',
+      'pay_status|1': ['0', '1'],
+      'create_time': '@datetime("yyyy-MM-dd A HH:mm:ss")',
+      'update_time': '@datetime("yyyy-MM-dd A HH:mm:ss")'
+    }],
+    'pagenum': '1',
+    'total': 27
+  },
+  'meta': {
+    'msg': '获取商品订单成功',
+    'status': 200
+  }
+})
+Mock.mock(/\/express/, 'get', {
+  'data|5-10': [
+    {
+      'time': '@datetime("yyyy-MM-dd A HH:mm:ss")',
+      'ftime': '@datetime("yyyy-MM-dd A HH:mm:ss")',
+      'context': '@cparagraph(1)',
+      'location': ''
+    }
+  ],
+  'meta': {
+    'msg': '获取商品物流信息成功',
+    'status': 200
+  }
+})
