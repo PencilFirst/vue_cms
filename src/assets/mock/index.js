@@ -98,7 +98,7 @@ Mock.mock('/menus', 'get', {
           {
             'id': 114,
             'authName': '数据报表',
-            'path': null,
+            'path': 'report',
             'childern': []
           }
         ]
